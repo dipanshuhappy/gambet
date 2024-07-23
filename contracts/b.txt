@@ -1,0 +1,316 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_userA",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_userB",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_platformAddres",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_usernameA",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "_usernameB",
+        "type": "string",
+        "internalType": "string"
+      },
+      {
+        "name": "_reclaimAddress",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_gameId",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "receive",
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "bet",
+    "inputs": [],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "end",
+    "inputs": [
+      {
+        "name": "_proof",
+        "type": "tuple",
+        "internalType": "struct Reclaim.Proof",
+        "components": [
+          {
+            "name": "claimInfo",
+            "type": "tuple",
+            "internalType": "struct Claims.ClaimInfo",
+            "components": [
+              {
+                "name": "provider",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "parameters",
+                "type": "string",
+                "internalType": "string"
+              },
+              {
+                "name": "context",
+                "type": "string",
+                "internalType": "string"
+              }
+            ]
+          },
+          {
+            "name": "signedClaim",
+            "type": "tuple",
+            "internalType": "struct Claims.SignedClaim",
+            "components": [
+              {
+                "name": "claim",
+                "type": "tuple",
+                "internalType": "struct Claims.CompleteClaimData",
+                "components": [
+                  {
+                    "name": "identifier",
+                    "type": "bytes32",
+                    "internalType": "bytes32"
+                  },
+                  {
+                    "name": "owner",
+                    "type": "address",
+                    "internalType": "address"
+                  },
+                  {
+                    "name": "timestampS",
+                    "type": "uint32",
+                    "internalType": "uint32"
+                  },
+                  {
+                    "name": "epoch",
+                    "type": "uint32",
+                    "internalType": "uint32"
+                  }
+                ]
+              },
+              {
+                "name": "signatures",
+                "type": "bytes[]",
+                "internalType": "bytes[]"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "gameId",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "platformAddress",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "proof",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "claimInfo",
+        "type": "tuple",
+        "internalType": "struct Claims.ClaimInfo",
+        "components": [
+          {
+            "name": "provider",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "parameters",
+            "type": "string",
+            "internalType": "string"
+          },
+          {
+            "name": "context",
+            "type": "string",
+            "internalType": "string"
+          }
+        ]
+      },
+      {
+        "name": "signedClaim",
+        "type": "tuple",
+        "internalType": "struct Claims.SignedClaim",
+        "components": [
+          {
+            "name": "claim",
+            "type": "tuple",
+            "internalType": "struct Claims.CompleteClaimData",
+            "components": [
+              {
+                "name": "identifier",
+                "type": "bytes32",
+                "internalType": "bytes32"
+              },
+              {
+                "name": "owner",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "timestampS",
+                "type": "uint32",
+                "internalType": "uint32"
+              },
+              {
+                "name": "epoch",
+                "type": "uint32",
+                "internalType": "uint32"
+              }
+            ]
+          },
+          {
+            "name": "signatures",
+            "type": "bytes[]",
+            "internalType": "bytes[]"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "providersHashes",
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "reclaimAddress",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "totalWager",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "userA",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "won",
+        "type": "bool",
+        "internalType": "bool"
+      },
+      {
+        "name": "username",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "userB",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "won",
+        "type": "bool",
+        "internalType": "bool"
+      },
+      {
+        "name": "username",
+        "type": "string",
+        "internalType": "string"
+      }
+    ],
+    "stateMutability": "view"
+  }
+]
