@@ -48,7 +48,7 @@ export default async function Game({ params }: { params: { id: string } }) {
     return (  <>  <BackgroundBeams/><Card className={cn("w-[380px] inter-var my-40 mx-auto relative z-30")} >
         {/* <Meteors/> */}
     <CardHeader>
-      <CardTitle>{`Send crypto  to this address ${supabaseGame.data[0].contract_address}`}</CardTitle>
+      <CardTitle className="text-sm">{`Address ${supabaseGame.data[0].contract_address}`}</CardTitle>
       <CardDescription>{supabaseGame.data[0].username_a} VS {supabaseGame.data[0].username_b}</CardDescription>
       <CardDescription>Total Wager is {formatEther(totalWager)} Matic</CardDescription>
     </CardHeader>
