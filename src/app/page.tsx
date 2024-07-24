@@ -82,7 +82,7 @@ function WalletConnect() {
               <DialogTitle className="text-center">Select Wallet</DialogTitle>
             </DialogHeader>
             <DialogDescription>
-              <div className="flex justify-evenly items-center my-4">
+              <div className="flex justify-between flex-col  items-center my-4">
                 {connectors.map((connector) => (
                   <Button
                     key={connector.uid}
@@ -90,6 +90,7 @@ function WalletConnect() {
                       connect({ connector })
                     
                     }}
+                    className="my-2"
                   >
                     {connector.name}
                   </Button>
@@ -150,6 +151,7 @@ function CreateGame() {
       const gameData: GameCallbackType = await (
         await fetch(`/api/game/${gameId}/details`, {
           method: "GET",
+
         })
       )
         .json()
@@ -189,7 +191,7 @@ function CreateGame() {
       });
 
       router.push('/games/'+gameId)
-      toast.success("Gambet created");
+      toast.success("Gambet created successfully");
     } catch (err) {
       console.log(err);
       toast.error("Error creating gambet : " + err);
