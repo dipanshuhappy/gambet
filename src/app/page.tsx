@@ -45,7 +45,7 @@ import {
   prepareTransactionRequest,
   waitForTransactionReceipt,
 } from "wagmi/actions";
-import { GameCallbackType } from "@/lib/types";
+import { GameCallbackType, LiveGame } from "@/lib/types";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
@@ -148,8 +148,8 @@ function CreateGame() {
     try {
       setLoading(true);
       // const url = "https://api-prod.pactsmith.com/api/price/usd_to_eth"
-      const gameData: GameCallbackType = await (
-        await fetch(`/api/game/${gameId}/details`, {
+      const gameData: LiveGame = await (
+        await fetch(`/api/game/${gameId}/live`, {
           method: "GET",
 
         })
@@ -159,7 +159,7 @@ function CreateGame() {
 
       const config = getConfig();
 
-      const areYouWhitePlayer = gameData.game.pgnHeaders.White === username;
+      const areYouWhitePlayer = gameData.playersDetails[0].username === username;
 
       const hash = await writeContract(client, {
         abi: GAMBET_FACTORY_ABI,
@@ -169,8 +169,8 @@ function CreateGame() {
           areYouWhitePlayer ? address : (opponentAddress as `0x${string}`),
           areYouWhitePlayer ? (opponentAddress as `0x${string}`) : address,
           `0x8b5E4bA136D3a483aC9988C20CBF0018cC687E6f` as `0x${string}`,
-          gameData.game.pgnHeaders.White,
-          gameData.game.pgnHeaders.Black,
+          areYouWhitePlayer ? gameData.playersDetails[0].username : gameData.playersDetails[1].username,
+          areYouWhitePlayer ? gameData.playersDetails[1].username : gameData.playersDetails[0].username,
           "0xcd94A4f7F85dFF1523269C52D0Ab6b85e9B22866",
           gameId.toString(),
         ],

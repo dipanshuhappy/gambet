@@ -1,3 +1,79 @@
+
+export interface LiveGame {
+  id: string
+  legacyId: number
+  variant: string
+  timeclass: string
+  timeControl: TimeControl
+  rated: boolean
+  players: string[]
+  playersDetails: PlayersDetail[]
+  createdAt: string
+  finishedAt: string
+  href: string
+  channel: string
+  pubsub: string
+  transports: Transports
+}
+
+export interface TimeControl {
+  base: string
+  increment: string
+}
+
+export interface PlayersDetail {
+  rating: number
+  id: string
+  userId: number
+  username: string
+  avatarUrl: string
+  highResAvatarUrl: string
+  country: string
+  membership: string
+  flairCode: string
+  enabled: boolean
+  createdAt: string
+  updatedAt: string
+  flairView: FlairView
+  chessTitle?: string
+}
+
+export interface FlairView {
+  id: string
+  images: Images
+}
+
+export interface Images {
+  lottie: string
+  svg: string
+  png?: string
+}
+
+export interface Transports {
+  http: Http
+  pubsub: Pubsub
+  rsocket: Rsocket
+}
+
+export interface Http {
+  url: string
+}
+
+export interface Pubsub {
+  url: string
+  channel: string
+}
+
+export interface Rsocket {
+  url: string
+  routes: Routes
+}
+
+export interface Routes {
+  watch: string
+}
+
+
 export interface GameCallbackType {
     game: Game;
     players: Players;
