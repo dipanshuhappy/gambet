@@ -186,11 +186,11 @@ function CreateGame() {
       await supabase.from("gambet").insert({
         contract_address: contractAddress,
         game_id: gameId.toString(),
-        username_a: gameData.game.pgnHeaders.White,
-        username_b: gameData.game.pgnHeaders.Black,
+        username_a: areYouWhitePlayer ? gameData.playersDetails[0].username : gameData.playersDetails[1].username,
+        username_b: areYouWhitePlayer ? gameData.playersDetails[1].username : gameData.playersDetails[0].username,
       });
 
-      router.push('/games/'+gameId)
+      router.push(`/games/${gameId.toString()}/bet`)
       toast.success("Gambet created successfully");
     } catch (err) {
       console.log(err);
