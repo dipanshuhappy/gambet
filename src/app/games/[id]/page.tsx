@@ -64,12 +64,12 @@ export default async function Game({ params }: { params: { id: string } }) {
       <div>
         <h3 className="text-sm font-semibold">White</h3>
         <p className="text-xs">Address: {userA[0]}</p>
-        <p className="text-xs">Username: {userA[1]}</p>
+        <p className="text-xs">Username: {gameDetails.game.pgnHeaders.White}</p>
       </div>
       <div>
         <h3 className="text-sm font-semibold">Black</h3>
         <p className="text-xs">Address: {userB[0]}</p>
-        <p className="text-xs">Username: {userB[1]}</p>
+        <p className="text-xs">Username: {gameDetails.game.pgnHeaders.Black}</p>
       </div>
     </CardContent>
     <CardFooter>

@@ -372,7 +372,7 @@ function App() {
           >
             <WalletConnect/>
             <CreateGame />
-            <ListGames />
+            {/* <ListGames /> */}
           </div>
         </CardBody>
       </CardContainer>
