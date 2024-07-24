@@ -1,12 +1,14 @@
 import BetForm from "@/components/page/bet-form";
 import { BackgroundBeams } from "@/components/ui/background-beams";
+import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { GAMBET_ABI } from "@/lib/constants";
 import { cn, supabase } from "@/lib/utils";
 import { getConfig } from "@/wagmi";
 import { formatEther, parseEther } from "viem";
 import { readContract } from "wagmi/actions";
-
+import { redirect } from "next/navigation";
+import Link from "next/link";
 export default async function Game({ params }: { params: { id: string } }) {
 
     const supabaseGame = await supabase.from('gambet').select('*').eq('game_id', params.id);
@@ -69,9 +71,10 @@ export default async function Game({ params }: { params: { id: string } }) {
        
           
      <BetForm contractAddress={supabaseGame.data[0].contract_address}/> 
-
+     
        
        
     </CardFooter>
+    <Link className="underline pb-10 text-center mx-10"href={`/games/${params.id}`}>Goto End Game</Link>
   </Card></>)
 }
